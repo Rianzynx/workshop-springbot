@@ -45,24 +45,34 @@ public class TestConfig implements CommandLineRunner {
                 "Smartphone com câmera tripla, bateria de longa duração e tela AMOLED.",
                 3999.00, "");
 
-        Product p2 = new Product(null, "Notebook Dell Inspiron 15",
-                "Notebook com processador Intel i5, 8GB RAM e SSD de 256GB.",
-                2899.90, "");
-
-        Product p3 = new Product(null, "Cadeira Gamer ThunderX",
-                "Cadeira ergonômica com apoio lombar e ajuste de altura.",
-                1199.50, "");
-
-        Product p4 = new Product(null, "Fone de Ouvido JBL Tune 510BT",
+        Product p2 = new Product(null, "Fone de Ouvido JBL Tune 510BT",
                 "Fone Bluetooth com graves potentes e bateria de até 40 horas.",
                 249.99, "");
 
-        Product p5 = new Product(null, "Monitor LG UltraWide 29'",
+
+        Product p3 = new Product(null, "Notebook Dell Inspiron 15",
+                "Notebook com processador Intel i5, 8GB RAM e SSD de 256GB.",
+                2899.90, "");
+
+        Product p4 = new Product(null, "Monitor LG UltraWide 29'",
                 "Monitor 29'' ultrawide com resolução Full HD e proporção 21:9.",
                 1499.00, "");
 
+        Product p5 = new Product(null, "Clean Code",
+                "Livro clássico sobre boas práticas de programação e código limpo.",
+                120.00, "");
+
+
 
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+
+        p1.getCategories().add(cat1);
+        p2.getCategories().add(cat1);
+        p3.getCategories().add(cat3);
+        p4.getCategories().add(cat3);
+        p5.getCategories().add(cat2);
+
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
 
